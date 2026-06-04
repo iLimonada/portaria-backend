@@ -1,69 +1,70 @@
-# AppPortaria 🏢
+# Portaria Inteligente - Backend API 🐍🏢
 
-Sistema completo de controle de portaria residencial desenvolvido para simplificar o gerenciamento de moradores e acessos. O projeto conta com um aplicativo mobile moderno conectado a uma API REST robusta e veloz.
+API RESTful robusta desenvolvida para o gerenciamento de portaria residencial e persistência de dados de moradores, servindo como motor de dados para o aplicativo mobile correspondente.
+
+---
+
+## 🚀 Funcionalidades
+
+- **Endpoints REST:** Rotas otimizadas para criação (`POST`), listagem (`GET`) e exclusão (`DELETE`) de moradores.
+- **Persistência Relacional:** Integração total com banco de dados para manutenção estável dos registros.
+- **Documentação Automática:** Interface interativa integrada para testes rápidos das rotas.
 
 ---
 
 ## 🛠️ Tecnologias Utilizadas
 
-### Frontend (Mobile)
-
-- **React Native / Expo** — Interface móvel fluida e multiplataforma.
-- **TypeScript** — Tipagem estática para maior segurança e manutenção do código.
-
-### Backend (API)
-
-- **Python** — Linguagem principal da aplicação.
-- **FastAPI** — Framework moderno e de alto desempenho para APIs.
-- **SQLAlchemy** — ORM para mapeamento e manipulação do banco de dados.
-- **Pydantic** — Validação de dados e tipagem com schemas estruturados.
-- **SQLite** — Banco de dados relacional leve e integrado.
+- **Python:** Linguagem base focada em legibilidade e performance.
+- **FastAPI:** Framework moderno e de alta performance para construção de APIs.
+- **SQLAlchemy (ORM):** Mapeamento objeto-relacional para isolamento da camada de banco de dados.
+- **SQLite:** Banco de dados relacional leve e ágil para persistência local (`sql_app.db`).
+- **Uvicorn:** Servidor ASGI rápido para produção e desenvolvimento local.
 
 ---
 
-## 📐 Estrutura do Projeto
+## 🔧 Como Executar Localmente
 
-O repositório está organizado em formato **Monorepo**, facilitando a manutenção e evolução do sistema.
+### 1. Pré-requisitos
 
-```text
-├── AppPortaria/        # Aplicativo Mobile (React Native / Expo)
-└── portaria-backend/   # API REST (FastAPI / Python)
-```
+Certifique-se de ter o **Python 3.x** instalado na sua máquina.
 
----
+### 2. Configuração do Ambiente Virtual
 
-## 🚀 Como Executar o Projeto
-
-### 1. Executando o Backend
-
-Acesse a pasta do servidor e configure o ambiente de desenvolvimento:
+Navegue até a pasta do projeto, crie e ative seu ambiente virtual (VENV):
 
 ```bash
 cd portaria-backend
 
+# No Windows (Git Bash)
+python -m venv venv
 source venv/Scripts/activate
-
-pip install -r requirements.txt
-
-uvicorn main:app --reload
 ```
 
-### 2. Executando o Frontend
+### 3. Instalação das Dependências
 
-Abra um novo terminal na raiz do projeto e execute o aplicativo:
+Instale todos os pacotes necessários a partir do arquivo de requerimentos gerado pelo `pip freeze`:
 
 ```bash
-cd AppPortaria
-
-npm install
-
-npx expo start
+pip install -r requirements.txt
 ```
 
+### 4. Inicialização do Servidor
+
+Execute o Uvicorn apontando para a sua rede local para permitir conexões externas (como as do aplicativo mobile):
+
+```bash
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+```
+
+### 5. Acessando a Documentação
+
+Após iniciar o servidor, acesse a documentação automática da API:
+
+- **Swagger UI:** `http://localhost:8000/docs`
+- **ReDoc:** `http://localhost:8000/redoc`
+
 ---
 
-## 📱 Recomendação
-
-Utilize o aplicativo **Expo Go** no seu celular para escanear o QR Code gerado pelo Expo e testar a aplicação diretamente em um dispositivo físico.
-
----
+## 🔗 Repositório do Frontend
+Confira o código-fonte do aplicativo React Native integrado a este ecossistema em: 
+👉 [https://github.com/iLimonada/AppPortaria](https://github.com/iLimonada/AppPortaria)
