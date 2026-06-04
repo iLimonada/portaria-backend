@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Depends, HTTPException, status, Response
+from fastapi.middleware.cors import CORSMiddleware
 from typing import List
 from sqlalchemy.orm import Session
 
@@ -9,8 +10,17 @@ from schemas import schemas
 # Cria as tabelas no banco de dados caso elas não existam
 models.Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="Condo Management API", version="0.1.0")
+app = FastAPI(title="Portaria Management API", version="0.1.0")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas as origens (ajuste conforme necessário)
+    allow_credentials=True, # Permite o envio de cookies e credenciais
+    allow_methods=["*"],  # Permite todos os métodos HTTP
+    allow_headers=["*"],  # Permite todos os cabeçalhos
+)
+
+# Rota de teste para verificar se a API está funcionando
 @app.get("/")
 def read_root():
     return {"message": "Bem-vindo à API do Portaria Backend!"}
