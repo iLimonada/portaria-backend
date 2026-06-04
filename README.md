@@ -67,4 +67,4 @@ Após iniciar o servidor, acesse a documentação automática da API:
 
 ## 🔗 Repositório do Frontend
 Confira o código-fonte do aplicativo React Native integrado a este ecossistema em: 
-👉 [https://github.com/iLimonada/AppPortaria](https://github.com/iLimonada/AppPortaria)
+[https://github.com/iLimonada/portaria-frontend](https://github.com/iLimonada/portaria-frontend)
